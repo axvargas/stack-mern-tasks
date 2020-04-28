@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 
 // SERVER-----------------------------------------
 const app = express();                                  //express() retorna un objeto, el server
@@ -16,10 +17,10 @@ app.use(express.json());                                //cada vez que llega un 
 
 // ROUTES-----------------------------------------
 app.use('/api/tasks', require('./routes/task.routes')); //El primer parametro es el prefijo de la ruta
- 
-// STATIC FILES-----------------------------------
 
+// STATIC FILES-----------------------------------      
+app.use(express.static(path.join(__dirname, 'public')));  //path.join convierte en path dos parametros
 // STARTING THE SERVER----------------------------
-app.listen(app.get('port'), ()=>{
+app.listen(app.get('port'), () => {
     console.log(`server on port ${app.get('port')}`);
 });
