@@ -15,8 +15,8 @@ app.use(morgan('dev'));                                 //Aplico el middleware y
 app.use(express.json());                                //cada vez que llega un dato al server va a pasar por la funcion y va a comprobar si es json. Envio y receopcion de jsons
 
 // ROUTES-----------------------------------------
-
-
+app.use('/api/tasks', require('./routes/task.routes')); //El primer parametro es el prefijo de la ruta
+ 
 // STATIC FILES-----------------------------------
 
 // STARTING THE SERVER----------------------------
