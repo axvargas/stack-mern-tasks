@@ -1,0 +1,17 @@
+--PARA INICIALIZAR MI ENTRONO EN NODE, SE CREA UN PACKAGE.JSON CON LOS DETALLES DEL PROYECTO
+$ npm init --yes 
+
+--INSTALO EL FRAMEWORK DE NODE, EXPRESS
+$ npm i express
+
+--PARA PROBRAR QUE FUNCIONA, DESPUES DE CONFIGURAR EL PUERTO EN SRC/INDEX.JS
+$ node src/index.js || $ npm start (Si ya se agrego el script start en el package.json)
+
+--INSTALO NODEMON CON -D (QUE SIGNIFICA QUE SOLO VA A SER USADO COMO DEPENDENCIA DE DESARROLLO)
+$ npm i nodemon -D
+
+--"dev": "nodemon src/index.js", en el package.json (PAra modo developer)
+$ npm run dev
+
+--INSTALO MORGAN, MODULO QUE ME MUESTRA POR CONSOLA TODAS LAS PETICIONES QUE SE HACEN AL SERVER
+$npm i morgan

@@ -1,0 +1,20 @@
+EXPLICACION DE LOS ARCHIVOS
+
+src
+|---/index                          -> Este archivo es el del servidor, es decir el archivo de node js
+|---/database.js                    -> me va a permitir conectarme a la base de datos
+|
+|---/routes
+|        |---/task.routes.js        -> Define las operaciones a traves de las urls que vamos a dar en el servidor
+|
+|---/models
+|        |---/task.js               -> Para definir los modelos/Schema de los datos que voy a guardar en la base de datos
+|        |
+|
+|---/public
+|        |---/
+|        
+|
+|---/app
+        |---/
+        |
