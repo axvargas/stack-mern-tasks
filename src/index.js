@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 
+const { mongoose } = require('./database');             //Traigo de database la coneccion a la base de datos
+
 // SERVER-----------------------------------------
 const app = express();                                  //express() retorna un objeto, el server
 
