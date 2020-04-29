@@ -1,6 +1,6 @@
 const Task = require('../models/task');
 
-const controller = {
+module.exports = {
     getTasks: async (req, res) => {
         const tasks = await Task.find();
         console.log(tasks);
@@ -48,4 +48,4 @@ const controller = {
     }
 }
 
-module.exports = controller;
+
