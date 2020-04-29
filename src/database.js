@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const URI = 'mongodb://localhost/stack-mern-tasks';
+const URI = 'mongodb://localhost/stack-mern-tasks';                             // stack-mern-tasks es el nombre de la DB
 
 // SOLVE DEPRECATION WARNINGSS
 mongoose.set('useUnifiedTopology', true);
