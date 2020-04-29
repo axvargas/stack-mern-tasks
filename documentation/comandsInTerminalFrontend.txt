@@ -11,3 +11,4 @@ $ npm i react react-dom -D
 
 -- NECESITAMOS BABEL PARA PODER TRASPILAR EL CODIGO DE JSX Y EL DE JAVASCRIPT MODERNO
 $ npm i  babel-loader @babel/core @babel/preset-react @babel/preset-env -D
+
