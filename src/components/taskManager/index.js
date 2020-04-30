@@ -7,7 +7,7 @@ import { useSnackbar } from 'notistack';
 
 import style from './style.js';
 
-export default ({ fetchTasks, data }) => {
+export default ({ fetchTasks, data, editable, handleEditTask }) => {
     const classes = style();
 
     const { enqueueSnackbar } = useSnackbar();
@@ -41,9 +41,7 @@ export default ({ fetchTasks, data }) => {
         }
     };
 
-    const handleEditTask = (id) => {
-        console.log("Editing" + id);
-    };
+    
 
     return (
         <TableContainer component={Paper}>

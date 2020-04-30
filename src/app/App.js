@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Typography, AppBar, Toolbar, IconButton, Grid, Paper, Container } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import style from './style.js';
@@ -9,15 +9,30 @@ export default () => {
     const classes = style();//declaro classes con style() y material ui hace la magia
 
     const [data, setData] = useState([]);
+    const [editable, setEditable] = useState({});
 
-    const fetchTasks =  () => {
+    const fetchTasks = () => {
         console.log('me ejecutaron');
         fetch('/api/tasks')
-        .then(res => res.json())
-        .then(dat => {
-            setData(dat);
-        });
+            .then(res => res.json())
+            .then(dat => {
+                setData(dat);
+            });
     }
+
+    const handleEditTask = (id) => {
+        console.log("Editing" + id);
+        fetch(`/api/tasks/${id}`)
+            .then(res => res.json())
+            .then(dat => {
+                console.log('%c DAT', 'color: orange;')
+                console.log(dat);
+
+                setEditable(dat);
+                
+            })
+
+    };
 
     return (
 
@@ -38,10 +53,10 @@ export default () => {
             <Container maxWidth="xl" className={classes.principalGrid}>
                 <Grid container spacing={3}>
                     <Grid item xs={5}>
-                        <Form fetchTasks={fetchTasks} data={data}/>
+                        <Form fetchTasks={fetchTasks} data={data} editable={editable} setEditable={setEditable} />
                     </Grid>
                     <Grid item xs={7}>
-                        <TaskManager fetchTasks={fetchTasks} data={data}/>
+                        <TaskManager fetchTasks={fetchTasks} data={data} editable={editable}  handleEditTask={handleEditTask} />
                     </Grid>
                 </Grid>
             </Container>
