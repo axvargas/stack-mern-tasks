@@ -4,6 +4,7 @@ $ npm i css-loader style-loader file-loader -D
 --INSTALO
 $ npm i babel-plugin-transform-imports -D
 
+
 --ANADO AL .BABELRC EN PLUGINS
 [
     'babel-plugin-transform-imports',

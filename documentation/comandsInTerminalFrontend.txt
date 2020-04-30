@@ -12,3 +12,11 @@ $ npm i react react-dom -D
 -- NECESITAMOS BABEL PARA PODER TRASPILAR EL CODIGO DE JSX Y EL DE JAVASCRIPT MODERNO
 $ npm i  babel-loader @babel/core @babel/preset-react @babel/preset-env -D
 
+--INSTALO EL PLUGIN PARA PODER LEER REACT CLASSES
+$ npm i @babel/plugin-proposal-class-properties -D
+--NO OLVIDES AGREGARLO A .BABELRC
+
+-- INSTALO UN SERVIDOR DE DESARROLLO 
+$ npm i webpack-dev-server -D
+script: "webpack-server": "webpack-dev-server",
+
