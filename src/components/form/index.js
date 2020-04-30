@@ -6,7 +6,7 @@ import style from './style.js';
 import { useSnackbar } from 'notistack';
 
 
-export default () => {
+export default ({fetchTasks, data}) => {
     const classes = style();
     const { enqueueSnackbar } = useSnackbar();
 
@@ -29,14 +29,15 @@ export default () => {
             }
         })
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                enqueueSnackbar('This is a success message!', { variant: 'success', autoHideDuration: 5000 });
+            .then(dat => {
+                console.log(dat);
+                enqueueSnackbar('Task saved!', { variant: 'success', autoHideDuration: 3000 });
                 setTitle('');
                 setDescription('');
 
             })
             .catch(error => console.log(error));
+        fetchTasks();
     }
 
 

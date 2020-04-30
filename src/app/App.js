@@ -1,15 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Typography, AppBar, Toolbar, IconButton, Grid, Paper, Container } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import style from './style.js';
 
 import Form from '../components/form';
+import TaskManager from '../components/taskManager';
 export default () => {
     const classes = style();//declaro classes con style() y material ui hace la magia
 
+    const [data, setData] = useState([]);
+
+    const fetchTasks =  () => {
+        console.log('me ejecutaron');
+        fetch('/api/tasks')
+        .then(res => res.json())
+        .then(dat => {
+            setData(dat);
+        });
+    }
+
     return (
 
-        <Container className={classes.root}>
+        <Container maxWidth="xl" className={classes.root}>
             {/* NAVIGATION BAR */}
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
@@ -23,13 +35,13 @@ export default () => {
             </AppBar>
 
             {/*  */}
-            <Container className={classes.principalGrid}>
+            <Container maxWidth="xl" className={classes.principalGrid}>
                 <Grid container spacing={3}>
                     <Grid item xs={5}>
-                        <Form />
+                        <Form fetchTasks={fetchTasks} data={data}/>
                     </Grid>
                     <Grid item xs={7}>
-                        <Paper className={classes.paper}>xs 7</Paper>
+                        <TaskManager fetchTasks={fetchTasks} data={data}/>
                     </Grid>
                 </Grid>
             </Container>
